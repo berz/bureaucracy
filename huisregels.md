@@ -1,4 +1,4 @@
-huisregels
+Huisregels
 ==========
 
 * Wat je doet in de space, doe je op eigen verantwoordelijkheid en risico.
@@ -21,7 +21,7 @@ huisregels
 * Toon respect tegenover anderen in de space.
 
 Handhaving van deze huisregels 
-------------------------------
+==============================
 * Indien er onduidelijkheid is over de regels zal het bestuur dit toelichten.
 * Uitzondering op de regels kunnen aangevraagd worden bij het bestuur.
 * Als iemand de goede gang van zaken binnen de space blijft verstoren door deze regels niet op te volgen zal het bestuur de volgende maatregelen ondernemen:
