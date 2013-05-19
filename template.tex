@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[dutch]{babel}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\title{$title$}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+%%%%%%%%%% Legacy %%%%%%%%%%
+\RequirePackage[l2tabu, orthodox]{nag}
+\usepackage{fixltx2e}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Fonts %%%%%%%%%%
+\usepackage{microtype}          % microkerning
+\usepackage[no-math]{fontspec}  % load system fonts
+\defaultfontfeatures{Microtype,
+     Mapping=tex-text,
+     Ligatures=TeX,
+     Scale=MatchLowercase}
+\newfontfeature{Microtype}{protrusion=default; expansion=default;}
+\setmainfont[Ligatures={TeX, Common}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle}]{Linux Biolinum O}
+\setmonofont{Inconsolata}
+
+\usepackage{xunicode}   % convert latex accents and characters to unicode
+\usepackage{xltxtra}    % some XeTeX specific stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% Typography %%%%%%%%%%
+\frenchspacing                          % don't doublespace after a period
+\usepackage{parskip}                    % vertical space between paragraphs instead of indentation
+\usepackage{ellipsis}                   % fixes ellipsis spacing
+\usepackage[hang,flushmargin]{footmisc} % better footnotes
+\usepackage{booktabs}                   % better tables
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=0pt, itemindent=0pt}
+\setlist[enumerate]{labelindent=2em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%% Page layout %%%%%%%%
+\usepackage[DIV=18, headinclude=false, footinclude=false]{typearea}
+\pagenumbering{gobble}
+\usepackage{titling}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% embed sourcecode %%%%%
+\def\uqji#1#2\relax{% this makes it work with spaces in the filename
+  \ifx"#1%
+    \uqjii#2%
+  \else
+    \let\filename\jobname
+  \fi}
+\def\uqjii#1"{\def\filename{#1}}
+\expandafter\uqji\jobname\relax
+
+\usepackage{navigator}
+\embeddedfile{sourcecode}{./\filename.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Misc %%%%%%%%%%%
+\usepackage[usenames,dvipsnames]{xcolor}    % define some some colors
+\usepackage[setpagesize=false,              % page size defined by xetex
+            unicode=false,                  % unicode breaks when used with xetex
+            xetex]{hyperref}
+\hypersetup{
+    pdfusetitle,                % put \title and \author in pdf metadata
+    linktocpage=true,           % only link the pages in the TOC
+    ocgcolorlinks,              % only show links on screens, as colors
+    citecolor=blue,             %
+    filecolor=blue,             % define the link colors
+    linkcolor=blue,             %
+    urlcolor=blue]}             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setlength{\droptitle}{-2em}
+\maketitle
+\vspace*{-5em}
+
+$body$
+
+\end{document}
