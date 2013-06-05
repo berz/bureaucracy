@@ -1,7 +1,9 @@
 In deze map bevindt zich alles wat met de administratie van hackerspace VoidWarranties te maken heeft.
 
 De statuten die zich hier bevinden zijn onder voorbehoudt, de officiële statuten vindt je in de publicaties van het staatsblad:
+
 <http://www.ejustice.just.fgov.be/tsv_pdf/2011/03/16/11041542.pdf>
+
 <http://www.ejustice.just.fgov.be/tsv_pdf/2012/08/17/12143193.pdf>
 
 Wijzigingen aanbrengen
@@ -16,15 +18,20 @@ Pull requests op bovenstaande bestanden zullen enkel aanvaard worden nadat deze 
 PDFs genereren
 ==============
 
-Huisregels.md kan omgezet worden in een PDF door gebruik te maken van pandoc:
+Markdown bestanden kunnen omgezet worden in een PDF door gebruik te maken van pandoc:
 
-    pandoc -o huisregels.pdf huisregels.md
+    pandoc -o donation.pdf donation.markdown
 
 Of gebaseerd op de officiële repo:
 
-    curl https://raw.github.com/voidwarranties/bureaucracy/master/huisregels.md |  pandoc -o huisregels.pdf
+    curl https://raw.github.com/voidwarranties/bureaucracy/master/huisregels.md |  pandoc -o donation.pdf
 
 Hiervoor dient LaTeX geïnstalleerd te zijn. 
-In de repository zit ook aangepaste template hiervoor, die je op deze manier gebruikt:
+In de repository zit ook aangepaste template om pdf's te generen, die je op deze manier gebruikt:
 
-    pandoc --template=template.tex --latex-engine=xelatex --variable title='Huisregelement VoidWarranties' -o huisregels.pdf huisregels.md
+    pandoc --template=template.tex --latex-engine=xelatex  -o donation.pdf donation.markdown
+
+Je kan de marges ook aanpassen door de variable layout='compact' op te geven:
+
+    pandoc --template=template.tex --latex-engine=xelatex --variable layout='compact' -o huisregels.pdf huisregels.md
+
