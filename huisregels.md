@@ -1,3 +1,5 @@
+%Huisregelement VoidWarranties
+
 Huisregels
 ==========
 
