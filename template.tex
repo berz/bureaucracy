@@ -37,6 +37,7 @@
 \usepackage{ellipsis}                   % fixes ellipsis spacing
 \usepackage[hang,flushmargin]{footmisc} % better footnotes
 \usepackage{booktabs}                   % better tables
+\usepackage{eurosym}                    % euro symbol (\euro)
 
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=0pt, itemindent=0pt}
@@ -78,11 +79,16 @@
     urlcolor=blue]}             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{ifthen}
+
 \begin{document}
 
-\setlength{\droptitle}{-2em}
+\ifthenelse{\equal{$layout$}{compact}}{\setlength{\droptitle}{-2em}}{}
+
 \maketitle
-\vspace*{-5em}
+
+\ifthenelse{\equal{$layout$}{compact}}{\vspace*{-5em}}{}
+
 
 $body$
 
